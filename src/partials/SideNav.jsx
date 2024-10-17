@@ -5,7 +5,7 @@ const SideNav = () => {
   return (
     <div className="w-[20%] h-full border-r-4 border-[#363636] p-10">
       <h1 className="text-white text-2xl font-bold">
-        <i class=" text-[#6556CD] ri-tv-fill mr-2 text-3xl"></i>
+        <i className=" text-[#6556CD] ri-tv-fill mr-2 text-3xl"></i>
         <span className="text-2xl">AstroShow</span>
       </h1>
 
@@ -16,31 +16,31 @@ const SideNav = () => {
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg  mr-2"
         >
-          <i class="ri-fire-line mr-2"></i>Trending
+          <i className="ri-fire-line mr-2"></i>Trending
         </Link>
         <Link
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-movie-2-line mr-2"></i>Movies
+          <i className="ri-movie-2-line mr-2"></i>Movies
         </Link>
         <Link
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-tv-line mr-2"></i>TV Shows
+          <i className="ri-tv-line mr-2"></i>TV Shows
         </Link>
         <Link
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-movie-2-line mr-2"></i>Anime
+          <i className="ri-movie-2-line mr-2"></i>Anime
         </Link>
         <Link
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-bookmark-line mr-2"></i>My List
+          <i className="ri-bookmark-line mr-2"></i>My List
         </Link>
       </nav>
       <hr className=" border-zinc-500 mt-4" />
@@ -52,13 +52,13 @@ const SideNav = () => {
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-3 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-information-line mr-2"></i>About
+          <i className="ri-information-line mr-2"></i>About
         </Link>
         <Link
           to="/"
           className="hover:bg-[#6556CD] hover:text-white p-3 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i class="ri-mail-line mr-2"></i>Contact
+          <i className="ri-mail-line mr-2"></i>Contact
         </Link>
       </nav>
     </div>
