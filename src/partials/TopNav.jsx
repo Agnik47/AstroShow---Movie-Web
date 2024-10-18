@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect"; // Import the Typewriter component from the library
 import axios from "../utils/axios";
-import noImage from "../accets/no-image.jpg"; // Ensure correct path to no-image
-
+import noImage from "../accets/no-image.jpg";
 const TopNav = () => {
   const [queery, setQueery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const GetSearch = async () => {
     try {
-      const {data} = await axios.get(`/search/multi?query=${queery}&include_adult=false&language=en-US&page=1`);
+      const { data } = await axios.get(
+        `/search/multi?query=${queery}&include_adult=false&language=en-US&page=1`
+      );
       console.log(data);
       setSearchResults(data.results);
     } catch (error) {
-       console.log("Erroro aya hai 404: ",error);
+      console.log("Erroro aya hai 404: ", error);
     }
   };
 
@@ -42,7 +43,14 @@ const TopNav = () => {
             <span className="mr-2">Search</span>
             <Typewriter
               options={{
-                strings: ["Movies...", "TV Shows...", "Anime...", "Documentaries...", "Short Films...", "Cartoons..."],
+                strings: [
+                  "Movies...",
+                  "TV Shows...",
+                  "Anime...",
+                  "Documentaries...",
+                  "Short Films...",
+                  "Cartoons...",
+                ],
                 autoStart: true,
                 loop: true,
                 delay: 100,
@@ -71,7 +79,7 @@ const TopNav = () => {
 
       {/* Suggestion Box  */}
       {queery.length > 0 && (
-        <div className="absolute top-[110%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh]">
+        <div className="absolute top-[90%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh]">
           {searchResults.map((movie, index) => (
             <Link
               key={index}
@@ -98,7 +106,7 @@ const TopNav = () => {
         </div>
       )}
 
-      <hr className="absolute bottom-0 left-0 w-full border-zinc-700 border-b-4" />
+      {/* <hr className="absolute bottom-0 left-0 w-full border-zinc-700 border-b-4" /> */}
     </div>
   );
 };
