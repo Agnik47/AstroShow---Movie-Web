@@ -6,6 +6,7 @@ import noImage from "../accets/no-image.jpg";
 const TopNav = () => {
   const [queery, setQueery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const GetSearch = async () => {
     try {
@@ -25,8 +26,30 @@ const TopNav = () => {
     }
   }, [queery]);
 
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
   return (
-    <div className="TopNav bar fixed top-0 left-[20%] w-[80%] bg-transparent border-[#363636] h-[10vh] flex justify-center items-center px-10 z-10">
+    <div className="TopNav bar fixed  top-0 left-[20%] w-[80%] bg-[#1F1E24] border-[#363636] h-[10vh] flex justify-center items-center px-10 z-10">
       <div className="InnerInput flex items-center w-[60%] gap-x-4 relative">
         <i className="ri-search-line text-white text-2xl"></i>
         <input
@@ -105,6 +128,11 @@ const TopNav = () => {
           ))}
         </div>
       )}
+
+      <i
+        onClick={toggleFullscreen}
+        className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line text-white text-2xl cursor-pointer mr-[-15vw] ml-[15vw]`}
+      ></i>
 
       {/* <hr className="absolute bottom-0 left-0 w-full border-zinc-700 border-b-4" /> */}
     </div>
