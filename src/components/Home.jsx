@@ -11,13 +11,14 @@ const Home = () => {
 
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
+  const [categories, setCategories] = useState("all");
 
   const getHeaderWallpaper = async () => {
     try {
-      const { data } = await axios.get("/trending/all/day");
+      const { data } = await axios.get("/trending/movie/day");
 
       let randomData =
-        data.results[(Math.random() * data.results.length).toFixed()]; //aslo can use Math.floor()
+        data.results[(Math.random() * data.results.length).toFixed()]; //also can use Math.floor()
       setWallpaper(randomData);
 
       console.log(randomData); //Done
@@ -28,7 +29,7 @@ const Home = () => {
 
   const getTrending = async () => {
     try {
-      const { data } = await axios.get("/trending/all/day");
+      const { data } = await axios.get(`/trending/${categories}/day`);
       setTrending(data.results);
     } catch (error) {
       console.error("Error: ", error);
@@ -36,26 +37,25 @@ const Home = () => {
   };
 
   useEffect(() => {
+    getTrending();
     !wallpaper && getHeaderWallpaper();
-    !trending && getTrending();
-  }, []);
-
-  
+  }, [categories]);
 
   return wallpaper && trending ? (
     <>
       <SideNav />
       <div className="w-[80%] h-full overflow-auto  overflow-x-hidden">
         <TopNav />
-        <Header wallpaperData={wallpaper}/>
-        <Horizontalcards data={trending} />
-        <Horizontalcards data={trending} />
-        <Horizontalcards data={trending} />
-        <Horizontalcards data={trending} />
+        <Header wallpaperData={wallpaper}  />
+        <Horizontalcards 
+          data={trending} 
+          categories={categories} 
+          setCategories={setCategories} 
+        />
       </div>
     </>
   ) : (
-    <Loader />
+    <Loader name={"Loading..."} />
   );
 };
 

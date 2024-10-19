@@ -13,28 +13,28 @@ const SideNav = () => {
         <h1 className="text-white font-semibold mt-10 mb-5 ">New Feeds</h1>
 
         <Link
-          to="/"
+          to="/trending"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg  mr-2"
         >
           <i className="ri-fire-line mr-2"></i>Trending
         </Link>
         <Link
-          to="/"
+          to="/movies"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-movie-2-line mr-2"></i>Movies
         </Link>
         <Link
-          to="/"
+          to="/tv-shows"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-tv-line mr-2"></i>TV Shows
         </Link>
         <Link
-          to="/"
+          to="/popular"
           className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
         >
-          <i className="ri-movie-2-line mr-2"></i>Anime
+          <i className="ri-movie-2-line mr-2"></i>Popular
         </Link>
         <Link
           to="/"

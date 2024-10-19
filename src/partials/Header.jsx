@@ -61,14 +61,13 @@ const Header = ({ wallpaperData }) => {
 
         {/* Conditionally render release date if it's available with a speaker icon */}
         {wallpaperData.release_date && (
-          <div className="flex items-center mb-6">
-            <i className="ri-volume-up-line mr-2"></i>
-            <p className="text-white text-sm md:text-lg">
+          <div className="flex items-center mb-4">
+            <i className="ri-calendar-line mr-2 text-white text-lg"></i>
+            <p className="text-white text-sm md:text-base">
               Release Date: {wallpaperData.release_date}
             </p>
           </div>
         )}
-
 
         {/* Buttons for "Watch Trailer" and "My List" actions */}
         <div className="flex gap-x-4">
