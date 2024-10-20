@@ -31,13 +31,15 @@ const Trending = () => {
 
   const getTrending = async () => {
     try {
-      const url = `/trending/${categories}/${duration}`;
+      const url = `/trending/${categories}/${duration}?page=${page}`;
       const { data } = await axios.get(url);
-      setTrending((prevData) => [...prevData, ...data.results]); // Append new data and Old data ko Bhi save karna hai  
-      setHasMore(data.results.length > 0); // Check if more data is available
-      setPage(page + 1);
-      console.log("Page:", page);
-      
+
+      if (data.results.length > 0) {
+        setTrending((prevData) => [...prevData, ...data.results]); // Append new data and Old data ko Bhi save karna hai
+        setPage(page + 1);
+      } else {
+        setHasMore(false);
+      }
     } catch (error) {
       console.error("Error fetching trending data:", error);
     }
@@ -46,8 +48,22 @@ const Trending = () => {
   // console.log("Categories:", categories);
   // console.log("Duration:", duration);
 
+  const refreshHandler = async () => {
+    if (trending.length === 0) {
+      setTrending([]);
+      setPage(1);
+      setHasMore(true);
+      await getTrending();
+    } else {
+      setTrending([]);
+      setPage(1);
+      // setHasMore(true);
+    }
+  };
+
   useEffect(() => {
-    getTrending(); // Fetch trending data whenever category or duration changes
+    refreshHandler();
+    getTrending();
   }, [categories, duration]);
 
   return (
@@ -62,7 +78,7 @@ const Trending = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav className={"mr-[12vw]"} tClassName={"left-[21.1%]"} />
+          <TopNav className={"mr-[12vw]"} tClassName={"left-[22%]"} />
 
           {/* First Dropdown for category */}
           <Dropdown
