@@ -14,31 +14,37 @@ const SideNav = () => {
 
         <Link
           to="/trending"
-          className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg  mr-2"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg  mr-2"
         >
           <i className="ri-fire-line mr-2"></i>Trending
         </Link>
         <Link
           to="/movies"
-          className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-movie-2-line mr-2"></i>Movies
         </Link>
         <Link
           to="/tv-shows"
-          className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-tv-line mr-2"></i>TV Shows
         </Link>
         <Link
           to="/popular"
-          className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-movie-2-line mr-2"></i>Popular
         </Link>
         <Link
           to="/"
-          className="hover:bg-[#6556CD] hover:text-white p-5 duration-300 rounded-lg mt-2 mr-2"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
+        >
+          <i className="ri-group-line mr-2"></i>People
+        </Link>
+        <Link
+          to="/"
+          className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-bookmark-line mr-2"></i>My List
         </Link>

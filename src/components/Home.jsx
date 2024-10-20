@@ -7,15 +7,17 @@ import TopNav from "../partials/TopNav";
 import Horizontalcards from "../partials/Horizontalcards";
 
 const Home = () => {
-  document.title = "AstroShow";
+  document.title = "AstroShow - Home";
 
   const [wallpaper, setWallpaper] = useState(null);
   const [trending, setTrending] = useState(null);
-  const [categories, setCategories] = useState("all");
+  const [categories, setCategories] = useState("movie");
+  const [showTopNav, setShowTopNav] = useState(true); // For showing/hiding TopNav
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const getHeaderWallpaper = async () => {
     try {
-      const { data } = await axios.get("/trending/movie/day");
+      const { data } = await axios.get("/trending/movie/week");
 
       let randomData =
         data.results[(Math.random() * data.results.length).toFixed()]; //also can use Math.floor()
@@ -36,6 +38,25 @@ const Home = () => {
     }
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // If scrolling down
+      setShowTopNav(false);
+    } else {
+      // If scrolling up
+      setShowTopNav(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   useEffect(() => {
     getTrending();
     !wallpaper && getHeaderWallpaper();
@@ -44,9 +65,12 @@ const Home = () => {
   return wallpaper && trending ? (
     <>
       <SideNav />
-      <div className="w-[80%] h-full overflow-auto  overflow-x-hidden">
-        <TopNav />
-        <Header wallpaperData={wallpaper}  />
+      <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
+        {/* Conditionally render TopNav based on scroll direction */}
+        {showTopNav && <TopNav />}
+
+        {/* Other components */}
+        <Header wallpaperData={wallpaper} />
         <Horizontalcards 
           data={trending} 
           categories={categories} 

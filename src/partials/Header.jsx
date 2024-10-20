@@ -30,7 +30,7 @@ const Header = ({ wallpaperData }) => {
         backgroundPosition: "center", 
         backgroundRepeat: "no-repeat", 
       }}
-      className="w-full h-[60vh] mt-[5vw] relative animate-fade-in" // Tailwind for width, height, margin, and animation
+      className="w-full h-[60vh]  relative animate-fade-in" // Tailwind for width, height, margin, and animation
     >
 
       {/* Content wrapper to hold the text and buttons, using flexbox for positioning */}

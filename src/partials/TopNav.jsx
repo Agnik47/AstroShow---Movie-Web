@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect"; // Import the Typewriter component from the library
 import axios from "../utils/axios";
 import noImage from "../accets/no-image.jpg";
-const TopNav = () => {
+const TopNav = ({className,tClassName}) => {
   const [queery, setQueery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -49,20 +49,20 @@ const TopNav = () => {
   }, []);
 
   return (
-    <div className="TopNav bar fixed  top-0 left-[20%] w-[80%] bg-[#1F1E24] border-[#363636] h-[10vh] flex justify-center items-center px-10 z-10">
+    <div className={`TopNav bar w-[80%] bg-[#1F1E2] border-[#363636] h-[10vh] ml-[10vw] flex justify-center items-center px-10 relative z-10 b ${className}`}>
       <div className="InnerInput flex items-center w-[60%] gap-x-4 relative">
-        <i className="ri-search-line text-white text-2xl"></i>
-        <input
+        <i className="ri-search-line text-white text-2xl absolute -left-[3%]"></i>  
+          <input
           type="text"
           value={queery}
           onChange={(e) => setQueery(e.target.value)}
           placeholder={queery.length === 0 ? "" : ""}
-          className="border-none bg-transparent outline-none text-white p-4 flex-grow mx-4 rounded-lg"
+          className="border-none bg-transparent h-[5vh] outline-none text-white p-4 flex-grow mx-4 rounded-lg"
         />
 
         {/* Static "Search" with Dynamic Words */}
         {queery.length === 0 && (
-          <div className="absolute left-[11%] text-white text-lg flex">
+          <div className={`absolute left-[4%] text-white text-lg flex ${tClassName}`}>
             <span className="mr-2">Search</span>
             <Typewriter
               options={{
@@ -134,7 +134,6 @@ const TopNav = () => {
         className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line text-white text-2xl cursor-pointer mr-[-15vw] ml-[15vw]`}
       ></i>
 
-      {/* <hr className="absolute bottom-0 left-0 w-full border-zinc-700 border-b-4" /> */}
     </div>
   );
 };
