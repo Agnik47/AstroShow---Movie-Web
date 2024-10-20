@@ -78,7 +78,7 @@ const Trending = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav className={"mr-[12vw]"} tClassName={"left-[22%]"} />
+          <TopNav className={"mr-[12vw]"} tClassName={"left-[21%] "} />
 
           {/* First Dropdown for category */}
           <Dropdown
