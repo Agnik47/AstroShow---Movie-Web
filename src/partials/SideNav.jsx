@@ -37,13 +37,13 @@ const SideNav = () => {
           <i className="ri-movie-2-line mr-2"></i>Popular
         </Link>
         <Link
-          to="/"
+          to="/people"
           className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-group-line mr-2"></i>People
         </Link>
         <Link
-          to="/"
+          to="/mylist"
           className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-bookmark-line mr-2"></i>My List

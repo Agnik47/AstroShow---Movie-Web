@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from "../utils/Loader";
 
 const Trending = () => {
   document.title = "AstroShow - Trending";
@@ -17,6 +18,7 @@ const Trending = () => {
   const [hasMore, setHasMore] = useState(true); //For Tracking More Data
   const [page, setPage] = useState(1);
 
+
   // Function to convert category to API-friendly value
   const convertToApiCategory = (selectedFilter) => {
     switch (selectedFilter) {
@@ -28,6 +30,7 @@ const Trending = () => {
         return "all";
     }
   };
+  
 
   const getTrending = async () => {
     try {
@@ -57,17 +60,23 @@ const Trending = () => {
     } else {
       setTrending([]);
       setPage(1);
-      // setHasMore(true);
+      //Set
     }
   };
+
 
   useEffect(() => {
     refreshHandler();
     getTrending();
   }, [categories, duration]);
 
-  return (
-    <div className="Trending-Page w-full h-screen  ">
+  return categories && trending ? (
+    <div className="Trending-Page w-full h-screen  " id="Trending-Page">
+      
+      <div className="SCROLL-UP fixed z-50  bg-zinc-700 hover:bg-zinc-600 transition-all duration-300  rounded-full cursor-pointer left-1/2  top-[89%] py-2 px-3 flex justify-center items-center" >
+        <p className="text-white text-sm">Scroll Up</p>
+      <i className="ri-arrow-up-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"></i>
+      </div>
       <div className="Upper-Side w-full flex items-center justify-between px-[2vw]">
         <h1 className="text-white text-2xl font-bold">
           <i
@@ -78,7 +87,7 @@ const Trending = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav className={"mr-[12vw]"} tClassName={"left-[21%] "} />
+          <TopNav className={"mr-[12vw]"} tClassName={"left-[23%] "} />
 
           {/* First Dropdown for category */}
           <Dropdown
@@ -108,6 +117,8 @@ const Trending = () => {
         <Cards data={trending} title={categories} />
       </InfiniteScroll>
     </div>
+  ) : (
+    <Loader />
   );
 };
 
