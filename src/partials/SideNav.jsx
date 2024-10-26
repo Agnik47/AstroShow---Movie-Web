@@ -19,13 +19,13 @@ const SideNav = () => {
           <i className="ri-fire-line mr-2"></i>Trending
         </Link>
         <Link
-          to="/movies"
+          to="/movie"
           className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-movie-2-line mr-2"></i>Movies
         </Link>
         <Link
-          to="/tv-shows"
+          to="/tv"
           className="hover:bg-[#6556CD] hover:text-white p-4 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-tv-line mr-2"></i>TV Shows

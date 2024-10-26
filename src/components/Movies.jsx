@@ -80,7 +80,7 @@ const Movies = () => {
         hasMore={hasMore} // Whether more data is available
         loader={<h4>Loading...</h4>}
       >
-        <Cards data={movie} title={categories} />
+        <Cards data={movie} title="movie" />
       </InfiniteScroll>
     </div>
   ) : (

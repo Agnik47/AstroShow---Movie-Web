@@ -17,16 +17,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />
-        <Route path="/movies" element={<Movies />} >
-          <Route path="/movies/details/:id" element={<MovieDetails />} />
-        </Route>
-        <Route path="/tv-shows" element={<TvShows />} >
-          <Route path="/tv-shows/details/:id" element={<TvDetails />} />
-        </Route>
         <Route path="/popular" element={<Popular />} />
-        <Route path="/people" element={<People />} >
-          <Route path="/people/details/:id" element={<PersonDetails />} />
-        </Route>
+
+        <Route path="/movie" element={<Movies />} />
+        <Route path="/movie/details/:id" element={<MovieDetails />} />
+
+        <Route path="/tv" element={<TvShows />} />
+        <Route path="/tv/details/:id" element={<TvDetails />} />
+
+        <Route path="/people" element={<People />} />
+        <Route path="/person/details/:id" element={<PersonDetails />} />
+
+
         <Route path="/mylist" element={<Mylist />} />
       </Routes>
     </div>

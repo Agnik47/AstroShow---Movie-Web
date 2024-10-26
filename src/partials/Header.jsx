@@ -72,14 +72,14 @@ const Header = ({ wallpaperData }) => {
         {/* Buttons for "Watch Trailer" and "My List" actions */}
         <div className="flex gap-x-4">
           {/* Play button with an icon and hover effect */}
-          <button className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
+          <Link className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
             <i className="ri-play-line mr-2"></i>Watch Trailer
-          </button>
+          </Link>
 
           {/* My List button with an icon and hover effect */}
-          <button className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
+          <Link to={`/mylist`} className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
             <i className="ri-bookmark-line mr-2"></i>My List
-          </button>
+          </Link>
         </div>
       </div>
     </div>

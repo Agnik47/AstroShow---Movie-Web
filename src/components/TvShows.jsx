@@ -59,7 +59,7 @@ const TvShows = () => {
             onClick={() => navigate(-1)}
             className="ri-arrow-left-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"
           ></i>{" "}
-          Movies {categories.toUpperCase()}
+          Tv Shows <span className="text-zinc-400 text-sm ">{categories.toUpperCase()}</span>
         </h1>
 
         <div className="flex items-center w-80%">
@@ -81,7 +81,7 @@ const TvShows = () => {
         hasMore={hasMore} // Whether more data is available
         loader={<h4>Loading...</h4>}
       >
-        <Cards data={tv} title={categories} />
+        <Cards data={tv} title="tv" />
       </InfiniteScroll>
     </div>
   ) : (

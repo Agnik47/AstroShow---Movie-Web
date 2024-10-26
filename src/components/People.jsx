@@ -77,7 +77,7 @@ const People = () => {
         hasMore={hasMore} // Whether more data is available
         loader={<h4>Loading...</h4>}
       >
-        <Cards data={people} title={categories} />
+        <Cards data={people} title="person" />
       </InfiniteScroll>
     </div>
   ) : (
