@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Header component that receives wallpaperData as a prop
 const Header = ({ wallpaperData }) => {
   // Logs the wallpaper data for debugging purposes
-  console.log(wallpaperData);
+  // console.log(wallpaperData);
   const [showFullOverview, setShowFullOverview] = useState(false);
 
   // Function to toggle between short and full overview

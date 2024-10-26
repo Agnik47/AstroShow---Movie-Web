@@ -23,7 +23,7 @@ const Home = () => {
         data.results[(Math.random() * data.results.length).toFixed()]; //also can use Math.floor()
       setWallpaper(randomData);
 
-      console.log(randomData); //Done
+      // console.log(randomData); //Done
     } catch (error) {
       console.error("Error: ", error);
     }
