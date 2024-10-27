@@ -105,6 +105,7 @@ const TopNav = ({className,tClassName}) => {
         <div className="absolute top-[90%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh]">
           {searchResults.map((movie, index) => (
             <Link
+              to={`/${movie.media_type || movie.title}/details/${movie.id}`}
               key={index}
               className="flex items-center gap-x-4 p-4 hover:bg-zinc-700 hover:text-lg transition-all duration-300 border-b-2 border-zinc-700"
             >

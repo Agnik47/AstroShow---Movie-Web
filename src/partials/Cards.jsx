@@ -9,9 +9,7 @@ const Cards = ({ data, title }) => {
     <div className="grid mt-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-[#1F1E24] px-[2vw]">
       {data.map((card, index) => {
         // Determine the image path from the available options
-        {
-          // console.log(card);
-        }
+      
         const imageUrl =
           card.backdrop_path || card.poster_path || card.profile_path;
 
@@ -34,6 +32,7 @@ const Cards = ({ data, title }) => {
             />
             
             {/* Raiting Div */}
+            
             {rating === true ? <div className="Rating absolute w-[3.5vw] h-[3.5vw] rounded-full flex justify-center items-center right-3 top-3 bg-gradient-to-r from-[#6556CD] to-pink-500 text-white shadow-lg text-sm font-semibold transform -translate-y-1/2 translate-x-1/2">
               {(card.vote_average * 10).toFixed()} 
               <span className="text-xs">%</span>
