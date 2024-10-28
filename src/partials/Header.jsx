@@ -72,7 +72,7 @@ const Header = ({ wallpaperData }) => {
         {/* Buttons for "Watch Trailer" and "My List" actions */}
         <div className="flex gap-x-4">
           {/* Play button with an icon and hover effect */}
-          <Link className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
+          <Link to={`/${wallpaperData.media_type || title}/details/${wallpaperData.id}`} className="flex items-center bg-[#6556CD] text-white rounded px-4 py-2 text-sm md:text-base hover:bg-[#5043A9] transition-all duration-300">
             <i className="ri-play-line mr-2"></i>Watch Trailer
           </Link>
 

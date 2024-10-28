@@ -19,7 +19,7 @@ const   MovieDetails = () => {
     <div className='text-white flex  items-center justify-center h-screen'>
         <h1 className='text-9xl font-bold'>Movie Details</h1>
     </div>
-  )
+  ) 
 }
 
 export default MovieDetails 

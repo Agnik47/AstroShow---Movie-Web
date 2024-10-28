@@ -11,7 +11,7 @@ export const asyncLoadMovie = (id) => async (dispatch,getState) => {
         const similar = await axios.get(`/movie/${id}/similar`);
         const recommendations = await axios.get(`/movie/${id}/recommendations`);
         const watchProviders = await axios.get(`/movie/${id}/watch/providers`);
-        let TheUltimateDetails = {
+        let TheUltimateMovieDetails = {
             detail: detail.data,
             externalId: externalId.data,
             videos: videos.data.results.find(vdo => vdo.type === "Trailer"),
@@ -19,8 +19,8 @@ export const asyncLoadMovie = (id) => async (dispatch,getState) => {
             recommendations: recommendations.data.results,
             watchProviders: watchProviders.data.results.IN,
         }
-        dispatch(loadMovie(TheUltimateDetails));
-        console.log(TheUltimateDetails);
+        dispatch(loadMovie(TheUltimateMovieDetails));
+        console.log(TheUltimateMovieDetails);
     }
     catch(error){
         console.log(error);
