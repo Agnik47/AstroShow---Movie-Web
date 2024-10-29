@@ -38,8 +38,8 @@ const Movies = () => {
   const refreshHandler = async () => {
     setMovie([]); // Reset Movie data
     setPage(1); // Reset page number
-    setHasMore(true); // Allow loading more data
-    await getMovie(); // Fetch data again
+    setHasMore(true); 
+    await getMovie(); 
   };
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Movies = () => {
   }, [categories]);
 
   return categories && movie ? (
-    <div className="Popular-Page w-full h-screen">
+    <div className="Popular-Page w-full min-h-screen">
       <div className="SCROLL-UP fixed z-50  bg-zinc-700 hover:bg-zinc-600 transition-all duration-300  rounded-full cursor-pointer left-1/2  top-[89%] py-2 px-3 flex justify-center items-center">
         <p className="text-white text-sm">Scroll Up</p>
         <i className="ri-arrow-up-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"></i>

@@ -72,6 +72,7 @@ const Home = () => {
         {/* Other components */}
         <Header wallpaperData={wallpaper} />
         <Horizontalcards 
+          cardClass="bg-[#2A292F]"
           data={trending} 
           categories={categories} 
           setCategories={setCategories} 
