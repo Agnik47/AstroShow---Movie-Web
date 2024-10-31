@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import noimage from "../accets/no-image.jpg";
 import Dropdown from "./Dropdown";
 import { Link } from "react-router-dom";
+import L404 from "../accets/L404.gif";
 
 // Custom Dropdown Component
 
@@ -50,7 +51,7 @@ const Horizontalcards = ({ data, categories, setCategories, cardClass }) => {
       </div>
 
       <div className="Cards w-full flex overflow-x-auto overflow-y-hidden space-x-6">
-        {data.map((item, index) => (
+        {data.length > 0 ? data.map((item, index) => (
           <Link
             to={`/${item.media_type}/details/${item.id}`}
             key={index}
@@ -105,7 +106,10 @@ const Horizontalcards = ({ data, categories, setCategories, cardClass }) => {
               </span>
             )}
           </Link>
-        ))}
+        )) : <div className="w-full backdrop-blur-sm h-[30vh] flex items-center justify-center">
+              <h1 className="text-white text-6xl font-mono">Nothing To Show</h1>
+              <img src={L404} alt="" className="w-[6vw] h-[6vw]" />
+              </div>}
       </div>
     </div>
   );

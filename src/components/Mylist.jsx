@@ -1,17 +1,16 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
-
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import CommingSoon from '../accets/CommingSoon.gif'
 const Mylist = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
-    <div className="text-center  flex justify-center items-center text-white ml-[29%]">
-      <h1 className="text-6xl"> I will make it Verry Soon.....</h1> <br />
-      <button onClick={()=>navigate(-1)} className=" bg-[#6556CD] hover:bg-[#5043A9] text-xl text-white font-bold py-2 px-4 rounded-full">
-        Back
+    <div className='w-full h-screen bg-red-100'>
+      <img className=" absolute top-0  w-full h-screen " src={CommingSoon} alt="Coming Soon"  />
+      <button onClick={()=>navigate(-1)} className=" absolute right-[14vw] top-[12vw]  w-[5vw] h-[3vw] rounded-sm">
+        
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Mylist;
+export default Mylist
