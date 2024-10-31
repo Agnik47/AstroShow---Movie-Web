@@ -22,9 +22,13 @@ const MovieDetails = () => {
 
   return info && info.detail ? (
     <div
-      className="w-full min-h-[155vh] md:min-h-[155vh] text-white flex flex-col items-center bg-cover bg-center bg-no-repeat"
+      className=" relative w-full min-h-[155vh] md:min-h-[155vh] text-white flex flex-col items-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
+        backgroundSize: "cover", 
+        backgroundPosition: "center",     
+        backgroundRepeat: "no-repeat", 
+
       }}
     >
       {/* Navigation */}
@@ -58,7 +62,7 @@ const MovieDetails = () => {
 
           <div className="flex justify-center md:justify-start items-center gap-4 mt-3">
             <span className="text-lg md:text-xl bg-yellow-600 px-3 py-1 rounded-full">
-              {info.detail.vote_average * 10}%
+              {(info.detail.vote_average * 10).toFixed()}%
             </span>
             <p className="text-lg md:text-xl">User Score</p>
             <p className="text-md md:text-lg text-gray-300">
@@ -140,4 +144,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-  

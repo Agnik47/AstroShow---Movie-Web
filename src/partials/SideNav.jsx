@@ -49,6 +49,7 @@ const SideNav = () => {
           <i className="ri-bookmark-line mr-2"></i>My List
         </Link>
       </nav>
+
       <hr className=" border-zinc-500 mt-4" />
       <h1 className="text-white text-xl font-semibold mt-4 mb-5 ">
         Website Information
