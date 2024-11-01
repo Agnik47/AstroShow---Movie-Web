@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieLoader = () => {
   return (
-    <div className="w-full min-h-[100vh]  text-white flex flex-col items-center bg-gray-900 animate-pulse">
+    <div className="w-full min-h-[150vh]  text-white flex flex-col items-center bg-gray-900 animate-pulse">
       {/* Navigation Skeleton */}
       <nav className="w-full flex items-center gap-5 p-5 md:p-10">
         <div className="w-8 h-8 bg-gray-700 rounded"></div>
