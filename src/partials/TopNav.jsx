@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect"; // Import the Typewriter component from the library
 import axios from "../utils/axios";
 import noImage from "../accets/no-image.jpg";
-const TopNav = ({className,tClassName}) => {
+const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
   const [queery, setQueery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -102,7 +102,7 @@ const TopNav = ({className,tClassName}) => {
 
       {/* Suggestion Box  */}
       {queery.length > 0 && (
-        <div className="absolute top-[90%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh]">
+        <div className={`absolute top-[90%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh] ${SuggestionClass}`}>
           {searchResults.map((movie, index) => (
             <Link
               to={`/${movie.media_type || movie.title}/details/${movie.id}`}
@@ -132,7 +132,7 @@ const TopNav = ({className,tClassName}) => {
 
       <i
         onClick={toggleFullscreen}
-        className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line text-white text-2xl cursor-pointer mr-[-15vw] ml-[15vw]`}
+        className={`ri-${isFullscreen ? 'fullscreen-exit' : 'fullscreen'}-line text-white text-2xl cursor-pointer mr-[-15vw] ml-[15vw] ${fullScreenClass}`}
       ></i>
 
     </div>

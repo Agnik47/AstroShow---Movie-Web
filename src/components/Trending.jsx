@@ -19,6 +19,27 @@ const Trending = () => {
   const [page, setPage] = useState(1);
 
 
+  const [showScrollUp, setShowScrollUp] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
+   // Show the scroll up button when scrolled down a certain amount
+   const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScrollUp(true);
+    } else {
+      setShowScrollUp(false);
+    }
+  };
+
+
   // Function to convert category to API-friendly value
   const convertToApiCategory = (selectedFilter) => {
     switch (selectedFilter) {
@@ -30,6 +51,8 @@ const Trending = () => {
         return "all";
     }
   };
+
+ 
   
 
   const getTrending = async () => {
@@ -73,36 +96,38 @@ const Trending = () => {
   return categories && trending ? (
     <div className="Trending-Page w-full h-screen  " id="Trending-Page">
       
-      <div className="SCROLL-UP fixed z-50  bg-zinc-700 hover:bg-zinc-600 transition-all duration-300  rounded-full cursor-pointer left-1/2  top-[89%] py-2 px-3 flex justify-center items-center" >
-        <p className="text-white text-sm">Scroll Up</p>
-      <i className="ri-arrow-up-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"></i>
-      </div>
-      <div className="Upper-Side w-full flex items-center justify-between px-[2vw]">
-        <h1 className="text-white text-2xl font-bold">
+      {/* Scroll Up Button */}
+       {showScrollUp && (
+        <div
+          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
+          onClick={scrollToTop} // Scroll to top on click
+        >
+          <p className="text-white text-sm mr-2">Scroll Up</p>
+          <i className="ri-arrow-up-line text-white text-2xl"></i>
+          </div>
+        )}
+
+
+      <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
+        <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
           <i
             onClick={() => navigate(-1)}
-            className="ri-arrow-left-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"
-          ></i>{" "}
+            className="ri-arrow-left-line text-white cursor-pointer hover:text-[#6556CD] transition-colors mr-2"
+          ></i>
           Trending
         </h1>
 
-        <div className="flex items-center w-80%">
-          <TopNav className={"mr-[12vw]"} tClassName={"left-[23%] "} />
-
-          {/* First Dropdown for category */}
+        <div className="flex items-center space-x-4">
+          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block  w-[40vw] top-6 " />
           <Dropdown
             options={["all", "movie", "tv"]}
             selectedOption={categories}
-            onOptionChange={setCategories} // Update selected category
+            onOptionChange={setCategories}
           />
-
-          <div className="w-[1px] h-[40px] bg-[#333333] mx-5"></div>
-
-          {/* Second Dropdown for duration */}
           <Dropdown
             options={["day", "week"]}
             selectedOption={duration}
-            onOptionChange={setDuration} // Update selected duration
+            onOptionChange={setDuration}
           />
         </div>
       </div>
