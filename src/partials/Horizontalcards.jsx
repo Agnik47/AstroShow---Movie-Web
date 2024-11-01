@@ -6,7 +6,7 @@ import L404 from "../accets/L404.gif";
 
 // Custom Dropdown Component
 
-const Horizontalcards = ({ data, categories, setCategories, cardClass }) => {
+const Horizontalcards = ({ data, categories, setCategories, cardClass,h1Header ,dropdown2}) => {
   // Dropdown options for filtering
   const filterOptions = ["All", "TV Shows", "Movies"];
 
@@ -25,7 +25,7 @@ const Horizontalcards = ({ data, categories, setCategories, cardClass }) => {
   return (
     <div className="p-5 w-full bg-transparent rounded-lg shadow-lg">
       <div className="mb-7 flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-white">
+        <h1 className={`text-3xl font-bold text-white ${h1Header}`}>
           Trending{" "}
           {categories === "tv"
             ? "TV Shows"
@@ -36,6 +36,7 @@ const Horizontalcards = ({ data, categories, setCategories, cardClass }) => {
 
         {/* Custom Dropdown Filter */}
         <Dropdown
+           dropDown={`${dropdown2}`}
           options={filterOptions}
           selectedOption={
             categories === "tv"

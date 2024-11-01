@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ options, selectedOption, onOptionChange }) => {
+const Dropdown = ({ options, selectedOption, onOptionChange,dropDown }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptionClick = (option) => {
@@ -9,7 +9,7 @@ const Dropdown = ({ options, selectedOption, onOptionChange }) => {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className={`relative inline-block ${dropDown}`}>
       <button
         className="bg-[#6556CD] text-white rounded w-[150px] h-[40px] px-5 py-2 flex justify-between items-center transition-colors duration-200 hover:bg-[#5043A9]"
         onClick={() => setIsOpen(!isOpen)}
@@ -33,7 +33,7 @@ const Dropdown = ({ options, selectedOption, onOptionChange }) => {
         </div>
       )}
     </div>
-  );
+  );  
 };
 
 export default Dropdown;

@@ -22,7 +22,7 @@ const MovieDetails = () => {
 
   return info && info.detail ? (
     <div
-      className=" relative w-full min-h-[155vh] md:min-h-[155vh] text-white flex flex-col items-center bg-cover bg-center bg-no-repeat"
+      className=" relative w-full min-h-[230vh] md:min-h-[140vh] text-white flex flex-col items-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
         backgroundSize: "cover", 
@@ -84,7 +84,7 @@ const MovieDetails = () => {
       </div>
 
       {/* Platforms */}
-      <div className="w-full max-w-6xl px-5 md:px-10 my-10">
+      {/* <div className="w-full max-w-6xl px-5 md:px-10 my-10">
         <h2 className="text-2xl font-bold mb-5">Available On Platforms</h2>
         <div className="flex gap-5">
           {info.watchproviders && info.watchproviders.flatrate && (
@@ -130,12 +130,12 @@ const MovieDetails = () => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       {/* Recommendations */}
       <div className="w-full max-w-6xl px-5 md:px-10 mt-10">
         <h2 className="text-3xl font-bold text-white">Recommendations & Similar Movies</h2>
-        <Horizontalcards data={info.recommendations.length ? info.recommendations : info.similar} cardClass="backdrop-blur-xl" />
+        <Horizontalcards h1Header="hidden" data={info.recommendations.length ? info.recommendations : info.similar} cardClass="backdrop-blur-xl" />
       </div>
       
       <Outlet />

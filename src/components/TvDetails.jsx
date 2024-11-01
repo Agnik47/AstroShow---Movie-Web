@@ -22,7 +22,7 @@ const TvDetails = () => {
 
   return info && info.detail ? (
     <div
-      className="relative w-full min-h-[155vh] text-white flex flex-col items-center bg-black "
+      className="relative w-full min-h-[310vh] md:min-h-[190vh] text-white flex flex-col items-center bg-black "
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
         backgroundSize: 'cover',
@@ -99,8 +99,13 @@ const TvDetails = () => {
 
       {/* Recommendations */}
       <div className="w-full max-w-5xl px-5 md:px-10 mt-8">
+        <h2 className="text-2xl font-bold">Seasons and Serise</h2>
+        <Horizontalcards dropDown2="hidden" h1Header="hidden" data={info.detail.seasons.length ? info.detail.seasons : <><h1>NO SEASONS ARE THERE</h1></>} cardClass="backdrop-blur-md" />
+      </div>
+
+      <div className="w-full max-w-5xl px-5 md:px-10 mt-8">
         <h2 className="text-2xl font-bold">Recommendations & Similar Movies</h2>
-        <Horizontalcards data={info.recommendations.length ? info.recommendations : info.similar} cardClass="backdrop-blur-md" />
+        <Horizontalcards  h1Header="hidden" data={info.recommendations.length ? info.recommendations : info.similar} cardClass="backdrop-blur-md" />
       </div>
 
       <Outlet />
