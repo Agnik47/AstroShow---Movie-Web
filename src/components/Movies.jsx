@@ -99,7 +99,7 @@ const Movies = () => {
         dataLength={movie.length}
         next={getMovie}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<h4 className="text-2xl text-white mt-2 ">Loading...</h4>}
         scrollableTarget="Popular-Page"
       >
         <Cards data={movie} title="movie" />

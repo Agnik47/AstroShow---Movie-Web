@@ -22,7 +22,7 @@ const TvDetails = () => {
 
   return info && info.detail ? (
     <div
-      className="relative w-full min-h-[310vh] md:min-h-[190vh] text-white flex flex-col items-center bg-black "
+      className="relative w-full min-h-[340vh] md:min-h-[190vh] text-white flex flex-col items-center bg-black "
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
         backgroundSize: 'cover',
