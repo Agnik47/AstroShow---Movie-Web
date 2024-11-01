@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Cards = ({ data, title }) => {
+const Cards = ({ data, title,ratingClass }) => {
   // console.log(title);
   const [rating, setRating] = useState(true);
 
   return (
-    <div className="grid mt-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-[#1F1E24] px-[2vw]">
+    <div className="grid mt-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 bg-[#1F1E24] px-[2vw]">
       {data.map((card, index) => {
         // Determine the image path from the available options
       
@@ -33,8 +33,8 @@ const Cards = ({ data, title }) => {
             
             {/* Raiting Div */}
             
-            {rating === true ? <div className="Rating absolute w-[3.5vw] h-[3.5vw] rounded-full flex justify-center items-center right-3 top-3 bg-gradient-to-r from-[#6556CD] to-pink-500 text-white shadow-lg text-sm font-semibold transform -translate-y-1/2 translate-x-1/2">
-              {(card.vote_average * 10).toFixed()} 
+            {rating === true ? <div className={`Rating absolute mb:w-[1.5vw] mb:h-[9.5vw]  w-10 h-10 rounded-full flex justify-center items-center right-3 top-3 bg-gradient-to-r from-[#6556CD] to-pink-500 text-white shadow-lg text-sm font-semibold transform -translate-y-1/2 translate-x-1/2 ${ratingClass}`}>
+              {(card.vote_average * 10).toFixed()}  
               <span className="text-xs">%</span>
             </div> :<></>}  
 

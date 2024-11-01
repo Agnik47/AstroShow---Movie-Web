@@ -108,7 +108,7 @@ const Popular = () => {
         loader={<h4>Loading...</h4>}
         scrollableTarget="Popular-Page" // Assign scroll target
       >
-        <Cards data={popular} title={categories} />
+        <Cards data={popular} title={categories}/>
       </InfiniteScroll>
     </div>
   ) : (

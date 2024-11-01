@@ -98,7 +98,7 @@ const People = () => {
         hasMore={hasMore} // Whether more data is available
         loader={<h4>Loading...</h4>}
       >
-        <Cards data={people} title="person" />
+        <Cards data={people} title="person" ratingClass="hidden" />
       </InfiniteScroll>
     </div>
   ) : (
