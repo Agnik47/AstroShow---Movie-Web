@@ -1,3 +1,4 @@
+// Home.js
 import React, { useEffect, useState } from "react";
 import Header from "../partials/Header";
 import axios from "../utils/axios";
@@ -14,16 +15,13 @@ const Home = () => {
   const [categories, setCategories] = useState("movie");
   const [showTopNav, setShowTopNav] = useState(true); // For showing/hiding TopNav
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Set to false initially for mobile
 
   const getHeaderWallpaper = async () => {
     try {
       const { data } = await axios.get("/trending/movie/week");
-
-      let randomData =
-        data.results[(Math.random() * data.results.length).toFixed()]; //also can use Math.floor()
+      const randomData = data.results[(Math.random() * data.results.length).toFixed()];
       setWallpaper(randomData);
-
-      // console.log(randomData); //Done
     } catch (error) {
       console.error("Error: ", error);
     }
@@ -40,21 +38,20 @@ const Home = () => {
 
   const handleScroll = () => {
     if (window.scrollY > lastScrollY) {
-      // If scrolling down
       setShowTopNav(false);
     } else {
-      // If scrolling up
       setShowTopNav(true);
     }
     setLastScrollY(window.scrollY);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   useEffect(() => {
@@ -64,18 +61,28 @@ const Home = () => {
 
   return wallpaper && trending ? (
     <>
-      <SideNav />
-      <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
-        {/* Conditionally render TopNav based on scroll direction */}
-        {showTopNav && <TopNav />}
+      {/* Sidebar toggle button with high z-index */}
+      <button
+        className="fixed top-4 left-4 z-10 text-2xl text-white bg-transparent p-2 rounded-full md:hidden"
+        onClick={toggleSidebar}
+      >
+        <i className="ri-menu-line"></i>
+      </button>
 
-        {/* Other components */}
+      {/* Sidebar */}
+      <div className={`fixed ${isSidebarOpen ? "block" : "hidden"} md:block`}>
+        <SideNav isSidebarOpen={isSidebarOpen} />
+      </div>
+
+      {/* Main content area */}
+      <div className="md:ml-[20%] w-full h-full overflow-auto overflow-x-hidden">
+        {showTopNav && <TopNav />}
         <Header wallpaperData={wallpaper} />
-        <Horizontalcards 
+        <Horizontalcards
           cardClass="bg-[#2A292F]"
-          data={trending} 
-          categories={categories} 
-          setCategories={setCategories} 
+          data={trending}
+          categories={categories}
+          setCategories={setCategories}
         />
       </div>
     </>

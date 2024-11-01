@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "../utils/Loader";
 
 const Trending = () => {
   document.title = "AstroShow - Trending";

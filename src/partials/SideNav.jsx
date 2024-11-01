@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SideNav = () => {
+const SideNav = ({ isSidebarOpen }) => {
   return (
-    <div className="w-[20%] h-full border-r-4 border-[#363636] p-10">
-      <h1 className="text-white text-2xl font-bold">
+    <div
+      className={`fixed z-50 inset-y-0 left-0 w-[60%] sm:w-[20%] bg-[#1F1E2] border-r-4 border-[#363636] p-10 transform 
+        ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} 
+        md:translate-x-0 transition-transform duration-300  bg-[]`}
+    >
+     <h1 className="text-white text-2xl font-bold">
         <i className=" text-[#6556CD] ri-tv-fill mr-2 text-3xl"></i>
         <span className="text-2xl">AstroShow</span>
       </h1>
 
-      <nav className="flex flex-col text-zinc-400 text-xl gap-1">
+      <nav className="flex flex-col text-zinc-400 text-xl gap-1 x z-50">
         <h1 className="text-white font-semibold mt-10 mb-5 ">New Feeds</h1>
 
         <Link
