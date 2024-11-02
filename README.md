@@ -2,18 +2,28 @@
 
 # 🌌 **AstroShow**
 
+
 ## 🚀 Description
 Hey there! I’m **Agnik**, the creator of **AstroShow** 🎥—a sleek, interactive movie web app built to enhance my frontend development skills. AstroShow provides an engaging experience for movie lovers, featuring trending movies, TV shows, trailers, and personalized recommendations!
 
 **Status**: 🛠️ *We’re working on improving responsiveness and fixing some bugs to make AstroShow even better!*
 
+---
+
 ## 🛠️ Tech Stack
-- **Frontend**: ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
-- **UI**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: CSS Modules, Responsive Design 📱💻
-- **API**: Axios
-- **Routing**: React Router
-- **State Management**: Redux Toolkit
+
+| 🛠️ Technology         | 📝 Purpose                               |
+|-----------------------|------------------------------------------|
+| ⚛️ **React**          | Frontend library for building UI         |
+| 🗄️ **Redux**          | State management for React               |
+| 🚏 **React Router**    | Handles routing between pages           |
+| 🌐 **Axios**          | API requests to fetch movie data         |
+| 🧰 **@reduxjs/toolkit** | Simplifies Redux configuration        |
+| 🎨 **CSS Modules**    | Modular styling                          |
+| 🏗️ **HTML5/CSS3**     | Structuring and styling                  |
+| ✨ **JavaScript (ES6+)** | Core programming language             |
+
+---
 
 ## 📦 React Dependencies
 - **react-router-dom**: For seamless page navigation.
@@ -24,7 +34,6 @@ Hey there! I’m **Agnik**, the creator of **AstroShow** 🎥—a sleek, interac
 ---
 
 ## 🗂️ Project Structure
-Here's a breakdown of how the project is organized:
 
 ```plaintext
 AstroShow/
@@ -80,4 +89,4 @@ AstroShow/
 
 --- 
 
-> Made with ❤️ by **Agnik** – *A project to explore and enhance frontend skills*
+> Made by **Agnik aka Astro** 
