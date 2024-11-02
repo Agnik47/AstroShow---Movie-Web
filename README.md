@@ -18,7 +18,7 @@ Hey there! I’m **Agnik**, the creator of **AstroShow** 🎥—a sleek, interac
 | 🚏 **React Router**    | Handles routing between pages           |
 | 🌐 **Axios**          | API requests to fetch movie data         |
 | 🧰 **@reduxjs/toolkit** | Simplifies Redux configuration        |
-| 🎨 **CSS Modules**    | Modular styling                          |
+| 🎨 **TailwindCSS**    | Better styling                          |
 | 🏗️ **HTML5/CSS3**     | Structuring and styling                  |
 | ✨ **JavaScript (ES6+)** | Core programming language             |
 
