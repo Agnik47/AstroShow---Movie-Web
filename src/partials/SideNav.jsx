@@ -66,7 +66,7 @@ const SideNav = ({ isSidebarOpen }) => {
           <i className="ri-information-line mr-2"></i>About
         </Link>
         <Link
-          to="/"
+          to="/contact"
           className="hover:bg-[#6556CD] hover:text-white p-3 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-mail-line mr-2"></i>Contact

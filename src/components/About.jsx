@@ -33,6 +33,7 @@ const About = () => {
             I’m Agnik Paul, a passionate frontend developer who loves blending design and technology. This project reflects my love for movies and my skills in creating engaging digital experiences.
           </p>
         </div>
+          <p onClick={()=>navigate("/contact")} className='cursor-pointer text-sm hover:underline lg:ml-[6vw] hover:text-yellow-300 transition duration-300'> Contact Me :)</p>
       </div>
 
       {/* Right Column - About Website, Technologies Used, and Tech Stack Table */}
@@ -103,7 +104,7 @@ const About = () => {
 
       {/* Back Button */}
       <button
-        onClick={() => navigate('/')}
+        onClick={() => navigate(-1)}
         className="absolute bottom-4  sm:bottom-6 px-6 py-2 sm:px-8 sm:py-3 bg-[#6556CD] text-white font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 hover:bg-[#5144b3] focus:outline-none z-20"
       >
         Back to Homepage

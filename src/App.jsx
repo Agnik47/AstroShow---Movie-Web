@@ -12,6 +12,7 @@ import TvDetails from "./components/TvDetails";
 import PersonDetails from "./components/PersonDetails";
 import VideoPlayer from "./partials/VideoPlayer";
 import About from "./components/About";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
 
         <Route path="/mylist" element={<Mylist />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         
       </Routes>
     </div>

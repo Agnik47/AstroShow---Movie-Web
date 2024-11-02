@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopNav from "../partials/TopNav";
 import Dropdown from "../partials/Dropdown";
 import { useNavigate } from "react-router-dom";
@@ -11,47 +11,39 @@ const People = () => {
   document.title = "AstroShow - People";
   const navigate = useNavigate();
 
-  // State for handling the selected option for both dropdowns
   const [categories, setCategories] = useState("popular");
   const [people, setPeople] = useState([]);
-  const [hasMore, setHasMore] = useState(true); // For Tracking More Data
+  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [showScrollUp, setShowScrollUp] = useState(false);
-    // Reference to the scrollable container
-    const scrollRef = useRef(null);
 
-    const scrollToTop = () => {
-      if (scrollRef.current) {
-        scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    };
-  
-    const handleScroll = () => {
-      if (scrollRef.current.scrollTop > 300) {
-        setShowScrollUp(true);
-      } else {
-        setShowScrollUp(false);
-      }
-    };
-  
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScrollUp(true);
+    } else {
+      setShowScrollUp(false);
+    }
+  };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-
-
-
-  // Fetch people data
   const getPeople = async () => {
     try {
       const url = `/person/${categories}?page=${page}`;
       const { data } = await axios.get(url);
 
       if (data && data.results && data.results.length > 0) {
-        // Append new data and keep old data
         setPeople((prevData) => [...prevData, ...data.results]);
-        setPage(page + 1); // Increment page for next fetch
-      } else {    
-        setHasMore(false); // No more data to load
+        setPage(page + 1);
+      } else {
+        setHasMore(false);
       }
     } catch (error) {
       console.error("Error fetching people data:", error);
@@ -59,21 +51,18 @@ const People = () => {
   };
 
   const refreshHandler = async () => {
-    setPeople([]); // Reset people data
-    setPage(1); // Reset page number
-    setHasMore(true); // Allow loading more data
-    await getPeople(); // Fetch data again
+    setPeople([]);
+    setPage(1);
+    setHasMore(true);
+    await getPeople();
   };
 
   useEffect(() => {
-    refreshHandler(); // Refresh when category changes
+    refreshHandler();
   }, [categories]);
 
-
-
   return categories && people ? (
-    <div className="Popular-Page w-full h-screen" onScroll={handleScroll}>
-      
+    <div className="Popular-Page w-full h-screen">
       {/* Scroll Up Button */}
       {showScrollUp && (
         <div
@@ -84,7 +73,6 @@ const People = () => {
           <i className="ri-arrow-up-line text-white text-2xl"></i>
         </div>
       )}
-
 
       <div className="Upper-Side w-full flex items-center justify-between px-[2vw]">
         <h1 className="text-white text-2xl font-bold">
@@ -97,22 +85,21 @@ const People = () => {
 
         <div className="flex items-center w-80%">
           <TopNav SuggestionClass="left-[1.2%]" fullScreenClass="hidden" className="hidden md:block w-[52vw] top-6 right-[12vw]" />
-          
         </div>
       </div>
 
       {/* Content with infinite scroll */}
       <InfiniteScroll
-        dataLength={people.length} // Current data length
-        next={getPeople} // Function to load more data
-        hasMore={hasMore} // Whether more data is available
+        dataLength={people.length}
+        next={getPeople}
+        hasMore={hasMore}
         loader={<h4>Loading...</h4>}
       >
         <Cards data={people} title="person" ratingClass="hidden" />
       </InfiniteScroll>
     </div>
   ) : (
-    <Loader /> // Show loader while fetching data
+    <Loader />
   );
 };
 

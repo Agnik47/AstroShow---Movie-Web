@@ -11,14 +11,14 @@ Hey there! I’m **Agnik**, the creator of **AstroShow** 🎥—a sleek, interac
 
 ## 🛠️ Tech Stack
 
-| 🛠️ Technology         | 📝 Purpose                               |
+| 🛠️ Technology         | 📝 Purpose                              |
 |-----------------------|------------------------------------------|
 | ⚛️ **React**          | Frontend library for building UI         |
 | 🗄️ **Redux**          | State management for React               |
 | 🚏 **React Router**    | Handles routing between pages           |
 | 🌐 **Axios**          | API requests to fetch movie data         |
-| 🧰 **@reduxjs/toolkit** | Simplifies Redux configuration        |
-| 🎨 **TailwindCSS**    | Better styling                          |
+| 🧰 **@reduxjs/toolkit** | Simplifies Redux configuration         |
+| 🎨 **TailwindCSS**    | Better styling                           |
 | 🏗️ **HTML5/CSS3**     | Structuring and styling                  |
 | ✨ **JavaScript (ES6+)** | Core programming language             |
 
