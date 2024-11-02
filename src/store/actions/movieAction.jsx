@@ -21,6 +21,6 @@ export const asyncLoadMovie = (id) => async (dispatch) => {
     dispatch(loadMovie(TheUltimateMovieDetails));
     // console.log(TheUltimateMovieDetails);
   } catch (error) {
-    console.log(error);
+    console.log("Error in   Movie Action ",error);
   }
 };

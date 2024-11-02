@@ -5,6 +5,7 @@ import { asyncLoadTv } from '../store/actions/tvAction';
 import { removeTv } from '../store/reducers/TvSlice';
 import MovieLoader from '../utils/MovieLoader';
 import Horizontalcards from '../partials/Horizontalcards';
+import P_DeatilsLoader from '../utils/P_DeatilsLoader';
 
 const TvDetails = () => {
   const dispatch = useDispatch();
@@ -110,7 +111,7 @@ const TvDetails = () => {
 
       <Outlet />
     </div>
-  ) : <MovieLoader />;
+  ) : <P_DeatilsLoade r />;
 };
 
 export default TvDetails;
