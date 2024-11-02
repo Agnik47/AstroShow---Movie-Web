@@ -30,6 +30,9 @@ Hey there! I’m **Agnik**, the creator of **AstroShow** 🎥—a sleek, interac
 - **redux**: Manages application state consistently across components.
 - **axios**: Handles API requests for fetching movie and TV show data.
 - **@reduxjs/toolkit**: Simplifies Redux setup and configuration.
+- **react-typrwritter**: For the TypeWritter Effect
+- **react-infinite-scroll-component**: For Infinite Scroll
+- **react-player**: For play the Trailer 
 
 ---
 
