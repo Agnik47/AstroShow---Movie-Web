@@ -11,7 +11,7 @@ import MovieDetails from "./components/MovieDetails";
 import TvDetails from "./components/TvDetails";
 import PersonDetails from "./components/PersonDetails";
 import VideoPlayer from "./partials/VideoPlayer";
-import About from "./components/About/About";
+import About from "./components/About";
 
 const App = () => {
   return (

@@ -2,16 +2,16 @@ import React from 'react';
 
 const MovieLoader = () => {
   return (
-    <div className="w-full min-h-[150vh]  text-white flex flex-col items-center bg-gray-900 animate-pulse">
+    <div className="w-full min-h-[120vh]  text-white flex flex-col items-center bg-gray-900 ">
       {/* Navigation Skeleton */}
-      <nav className="w-full flex items-center gap-5 p-5 md:p-10">
+      <nav className="w-full flex items-center gap-5 p-5 md:p-10 animate-pulse">
         <div className="w-8 h-8 bg-gray-700 rounded"></div>
         <div className="w-8 h-8 bg-gray-700 rounded"></div>
         <div className="w-16 h-8 bg-gray-700 rounded"></div>
       </nav>
 
       {/* Main Content Skeleton */}
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-10 w-full max-w-6xl px-5 md:px-10 py-5">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-10 w-full max-w-6xl px-5 md:px-10 py-5 bg-gray-900 animate-pulse">
         {/* Poster Skeleton */}
         <div className="h-80 w-60 bg-gray-700 rounded-lg"></div>
 
