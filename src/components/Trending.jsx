@@ -17,6 +17,36 @@ const Trending = () => {
   const [page, setPage] = useState(1);
   const [showScrollUp, setShowScrollUp] = useState(false);
 
+  const getTrending = async () => {
+    try {
+      const url = `/trending/${categories}/${duration}?page=${page}`;
+      const { data } = await axios.get(url);
+      console.log(url, data)
+
+      if (data.results.length > 0) {
+        setTrending((prevData) => [...prevData, ...data.results]);
+        setPage(page + 1);
+      } else {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error("Error fetching trending data:", error);
+    }
+  };
+
+
+  const refreshHandler = async () => {
+    setTrending([]); // Reset people data
+    setPage(1); // Reset page number
+    setHasMore(true); // Allow loading more data
+    await getTrending(); // Fetch data again
+  };
+
+  useEffect(() => {
+   refreshHandler();
+  }, [categories, duration]);
+
+
   // Reference to the scrollable container
   const scrollRef = useRef(null);
 
@@ -34,27 +64,8 @@ const Trending = () => {
     }
   };
 
-  useEffect(() => {
-    getTrending();
-  }, [categories, duration]);
 
-  const getTrending = async () => {
-    try {
-      const url = `/trending/${categories}/${duration}?page=${page}`;
-      const { data } = await axios.get(url);
-
-      if (data.results.length > 0) {
-        setTrending((prevData) => [...prevData, ...data.results]);
-        setPage(page + 1);
-      } else {
-        setHasMore(false);
-      }
-    } catch (error) {
-      console.error("Error fetching trending data:", error);
-    }
-  };
-
-  return (
+  return (  
     <div
       className="Trending-Page w-full h-screen overflow-y-auto"
       id="Trending-Page"

@@ -65,6 +65,7 @@ const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
           <div className={`absolute left-[4%] text-white text-lg flex ${tClassName}`}>
             <span className="mr-2">Search</span>
             <Typewriter
+              
               options={{
                 strings: [
                   "Movies...",

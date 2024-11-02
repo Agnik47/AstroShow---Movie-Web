@@ -60,7 +60,7 @@ const SideNav = ({ isSidebarOpen }) => {
       </h1>
       <nav className="flex flex-col text-zinc-400 text-xl gap-3">
         <Link
-          to="/"
+          to="/about"
           className="hover:bg-[#6556CD] hover:text-white p-3 duration-300 rounded-lg mt-2 mr-2"
         >
           <i className="ri-information-line mr-2"></i>About

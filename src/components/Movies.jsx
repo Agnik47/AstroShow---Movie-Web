@@ -38,7 +38,7 @@ const Movies = () => {
       const url = `/movie/${categories}?page=${page}`;
       const { data } = await axios.get(url);
 
-      if (data && data.results && data.results.length > 0) {
+      if (data.results.length > 0) {
         setMovie((prevData) => [...prevData, ...data.results]);
         setPage(page + 1);
       } else {
@@ -111,3 +111,4 @@ const Movies = () => {
 };
 
 export default Movies;
+    

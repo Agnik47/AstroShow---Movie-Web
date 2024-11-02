@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import TopNav from "../partials/TopNav";
 import Dropdown from "../partials/Dropdown";
 import { useNavigate } from "react-router-dom";
@@ -17,11 +17,28 @@ const People = () => {
   const [hasMore, setHasMore] = useState(true); // For Tracking More Data
   const [page, setPage] = useState(1);
   const [showScrollUp, setShowScrollUp] = useState(false);
+    // Reference to the scrollable container
+    const scrollRef = useRef(null);
 
-  // Function to scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    const scrollToTop = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+  
+    const handleScroll = () => {
+      if (scrollRef.current.scrollTop > 300) {
+        setShowScrollUp(true);
+      } else {
+        setShowScrollUp(false);
+      }
+    };
+  
+
+
+
+
+
 
   // Fetch people data
   const getPeople = async () => {
@@ -52,10 +69,7 @@ const People = () => {
     refreshHandler(); // Refresh when category changes
   }, [categories]);
 
-  // Show scroll-up button when scrolled down
-  const handleScroll = (e) => {
-    setShowScrollUp(e.target.documentElement.scrollTop > 300);
-  };
+
 
   return categories && people ? (
     <div className="Popular-Page w-full h-screen" onScroll={handleScroll}>
@@ -64,12 +78,13 @@ const People = () => {
       {showScrollUp && (
         <div
           className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
-          onClick={scrollToTop} // Scroll to top on click
+          onClick={scrollToTop}
         >
           <p className="text-white text-sm mr-2">Scroll Up</p>
           <i className="ri-arrow-up-line text-white text-2xl"></i>
         </div>
       )}
+
 
       <div className="Upper-Side w-full flex items-center justify-between px-[2vw]">
         <h1 className="text-white text-2xl font-bold">
@@ -81,13 +96,8 @@ const People = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block w-[60vw] top-6" />
-          {/* Dropdown for category */}
-          <Dropdown
-            options={["popular", "top_rated", "trending"]}
-            selectedOption={categories}
-            onOptionChange={setCategories} // Update selected category
-          />
+          <TopNav SuggestionClass="left-[1.2%]" fullScreenClass="hidden" className="hidden md:block w-[52vw] top-6 right-[12vw]" />
+          
         </div>
       </div>
 

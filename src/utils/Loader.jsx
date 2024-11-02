@@ -5,9 +5,9 @@ const Loader = ({name}) => {
   const skeletonItems = Array(5).fill(0); // Assuming you have 6 skeleton cards
 
   return (
-    <div className="flex w-[100%] min-h-screen bg-[#1F1E24]">
+    <div className="flex w-[80%] min-h-screen bg-[#1F1E24] ml-[20%]">
       {/* Skeleton for SideNav */}
-      <SideNav />
+      <SideNav  />
       {/* Main Content Skeleton */}
       
       <div className="flex-1 flex flex-col ">

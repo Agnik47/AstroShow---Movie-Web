@@ -39,29 +39,25 @@ const Popular = () => {
     try {
       const url = `${categories}/popular?page=${page}`;
       const { data } = await axios.get(url);
+      console.log(url, data)
 
-      if (data && data.results && data.results.length > 0) {
+      if (data.results.length > 0) {
         setPopular((prevData) => [...prevData, ...data.results]);
         setPage(page + 1);
       } else {
         setHasMore(false);
       }
     } catch (error) {
-      console.error("Error fetching popular data:", error);
+      console.error("Error fetching Popular data:", error);
     }
   };
 
-  const refreshHandler = async () => {
-    setPopular([]);
-    setPage(1);
-    setHasMore(true);
-    await getPopular();
-  };
-
   useEffect(() => {
-    refreshHandler();
+    getPopular();
   }, [categories]);
 
+
+  //    
   return categories && popular ? (
     <div
       className="Popular-Page w-full h-screen overflow-y-auto"

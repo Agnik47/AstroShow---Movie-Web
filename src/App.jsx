@@ -11,6 +11,7 @@ import MovieDetails from "./components/MovieDetails";
 import TvDetails from "./components/TvDetails";
 import PersonDetails from "./components/PersonDetails";
 import VideoPlayer from "./partials/VideoPlayer";
+import About from "./components/About/About";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
 
 
         <Route path="/mylist" element={<Mylist />} />
+        <Route path="/about" element={<About />} />
         
       </Routes>
     </div>
