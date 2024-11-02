@@ -5,17 +5,17 @@ import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-
 import Horizontalcards from "../partials/Horizontalcards";
 import MovieLoader from "../utils/MovieLoader";
 
-const MovieDetails = () => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
-  const { info } = useSelector((state) => state.movie);
+  const MovieDetails = () => {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const { info } = useSelector((state) => state.movie);
 
-  useEffect(() => {
-    dispatch(asyncLoadMovie(id));
-    return () => {
-      dispatch(removeMovie());
-    };
-  }, [id, dispatch]);
+    useEffect(() => {
+      dispatch(asyncLoadMovie(id));
+      return () => {
+        dispatch(removeMovie());
+      };
+    }, [id, dispatch]);
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
