@@ -26,7 +26,7 @@ const PersonDetails = () => {
     return (
         <>
             {info ? (
-                <div className="px-5 md:px-10 lg:px-20 w-full min-h-[240vh] lg:min-h-[140vh] bg-[#1F1E24]">
+                <div className="px-5 md:px-10 lg:px-20 w-full min-h-[240vh] lg:min-h-[160vh] bg-[#1F1E24]">
                     <nav className="h-[10vh] flex items-center gap-5 md:gap-10 text-xl text-zinc-100 mb-5">
                         <Link
                             onClick={() => navigate(-1)}
