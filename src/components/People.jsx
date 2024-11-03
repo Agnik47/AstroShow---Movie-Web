@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "../utils/Loader";
+import Loader from "../Loader/Loader";
 
 const People = () => {
   document.title = "AstroShow - People";

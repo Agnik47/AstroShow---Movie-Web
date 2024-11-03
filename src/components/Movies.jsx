@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "../utils/Loader";
+import Loader from "../Loader/Loader";
 
 const Movies = () => {
   document.title = "AstroShow - Movies";
@@ -86,7 +86,11 @@ const Movies = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block  w-[57vw] top-6 absolute " />
+          <TopNav
+            SuggestionClass="left-[1%]"
+            fullScreenClass="hidden"
+            className="hidden md:block  w-[57vw] top-6 absolute "
+          />
           <Dropdown
             options={["popular", "top_rated", "upcoming", "now_playing"]}
             selectedOption={categories}
@@ -111,4 +115,3 @@ const Movies = () => {
 };
 
 export default Movies;
-    

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../partials/Header";
 import axios from "../utils/axios";
-import Loader from "../utils/Loader";
+import Loader from "../Loader/Loader";
 import SideNav from "../partials/SideNav";
 import TopNav from "../partials/TopNav";
 import Horizontalcards from "../partials/Horizontalcards";
@@ -20,7 +20,8 @@ const Home = () => {
   const getHeaderWallpaper = async () => {
     try {
       const { data } = await axios.get("/trending/movie/week");
-      const randomData = data.results[(Math.random() * data.results.length).toFixed()];
+      const randomData =
+        data.results[(Math.random() * data.results.length).toFixed()];
       setWallpaper(randomData);
     } catch (error) {
       console.error("Error: ", error);

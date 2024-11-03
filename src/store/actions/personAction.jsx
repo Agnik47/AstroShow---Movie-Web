@@ -21,7 +21,7 @@ export const asyncloadperson = (id) => async (dispatch) => {
         };
 
         dispatch(loadPerson(TheUltimateDetails));
-        // console.log(TheUltimateDetails);
+        console.log(TheUltimateDetails);
         
     } catch (error) {
         console.log("Error: ", error);
