@@ -84,8 +84,7 @@ const Home = () => {
           data={trending}
           categories={categories}
           setCategories={setCategories}
-        />
-      </div>
+        /></div>
     </>
   ) : (
     <Loader name={"Loading..."} />

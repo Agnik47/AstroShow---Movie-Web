@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import BackVideo from "../accets/BackVideo.mp4";
 import ProfilePic from "../accets/ProfilePic.png";
 
 const Contact = () => {
     const navigate = useNavigate();
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            'service_vxftqaj', 
+            'template_c1amcd7', 
+            form.current, 
+            'RrREuQ2UAoBfaHTjH'
+        ).then(
+            () => {
+                toast.success('Message sent successfully!');
+            },
+            (error) => {
+                toast.error('Failed to send the message, please try again later.');
+            }
+        );
+    };
 
     return (
         <div className="contact-container relative flex flex-col items-center justify-center min-h-screen w-full text-white">
@@ -17,6 +39,9 @@ const Contact = () => {
             {/* Dark Overlay */}
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60 z-10"></div>
 
+            {/* Toast Container */}
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
+
             {/* Contact Info with Profile Picture */}
             <div className="relative z-20 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 p-6 text-center md:text-left max-w-3xl bg-white bg-opacity-10 rounded-lg shadow-lg">
                 {/* Profile Picture */}
@@ -28,11 +53,8 @@ const Contact = () => {
 
                 {/* Profile Information and Social Links */}
                 <div className="flex flex-col items-center md:items-start space-y-4">
-                    {/* Name and College Information */}
                     <h1 className="text-3xl font-bold text-white">Agnik Paul</h1>
                     <p className="text-gray-300 text-lg">BSc Physics with Computer Science | Kristujayanti College | 2nd Year</p>
-
-                    {/* Contact Details */}
                     <div className="flex flex-col space-y-2 text-left">
                         <p className="flex items-center space-x-2 text-gray-300">
                             <i className="ri-phone-line text-[#6556CD]"></i>
@@ -43,40 +65,27 @@ const Contact = () => {
                             <span>agnikpaul0020@gmail.com</span>
                         </p>
                     </div>
-
-                    {/* Social Links */}
-                    <div className="flex space-x-4 text-2xl mt-2">
-                        <a href="www.linkedin.com/in/agnik-paul-433a23274" target='_blank' className="text-gray-300 hover:text-[#6556CD]" aria-label="LinkedIn">
-                            <i className="ri-linkedin-fill"></i>
-                        </a>
-                        <a href="https://github.com/Agnik47" target='_blank' className="text-gray-300 hover:text-[#6556CD]" aria-label="GitHub">
-                            <i className="ri-github-fill"></i>
-                        </a>
-                        <a href="https://x.com/realagnik" target='_blank' className="text-gray-300 hover:text-[#6556CD]" aria-label="Twitter">
-                            <i className="ri-twitter-fill"></i>
-                        </a>
-                        <a href="#" target='_blank' className="text-gray-300 hover:text-[#6556CD]" aria-label="Discord">
-                            <i className="ri-discord-fill"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
 
             {/* Contact Form */}
             <div className="relative z-20 mt-10 w-full max-w-md p-6 bg-white bg-opacity-10 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-semibold text-center text-white">Get in Touch</h2>
-                <form className="flex flex-col space-y-4 mt-4">
+                <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4 mt-4">
                     <input
                         type="text"
+                        name="user_name"
                         placeholder="Your Name"
                         className="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-[#6556CD]"
                     />
                     <input
                         type="email"
+                        name="user_email"
                         placeholder="Your Email"
                         className="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-[#6556CD]"
                     />
                     <textarea
+                        name="message"
                         placeholder="Your Message"
                         className="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-[#6556CD] h-32 resize-none"
                     ></textarea>

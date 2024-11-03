@@ -56,7 +56,7 @@ const About = () => {
 
         {/* Tech Stack Table */}
         <div className="overflow-x-auto">
-          <h2 className="text-yellow-400 text-xl sm:text-2xl font-semibold mb-4 text-center">🛠️ Tech Stack</h2>
+          <h2 className="text-yellow-400 text-xl sm:text-2xl font-semibold mb-4 text-center">🛠️ Tech Stack & Dependency</h2>
           <table className="min-w-full bg-white bg-opacity-5 text-gray-300 rounded-lg shadow-lg text-xs sm:text-sm sm:mb-10">
             <thead>
               <tr className="bg-[#6556CD] text-white text-left">
@@ -86,12 +86,12 @@ const About = () => {
                 <td className="px-2 sm:px-4 py-3">Simplifies Redux configuration</td>
               </tr>
               <tr className="hover:bg-white hover:bg-opacity-10 transition-colors">
-                <td className="px-2 sm:px-4 py-3">🎨 CSS Modules</td>
-                <td className="px-2 sm:px-4 py-3">Modular styling</td>
+                <td className="px-2 sm:px-4 py-3">🎨 @emailjs/browser</td>
+                <td className="px-2 sm:px-4 py-3">Getting Replies</td>
               </tr>
               <tr className="hover:bg-white hover:bg-opacity-10 transition-colors">
-                <td className="px-2 sm:px-4 py-3">🏗️ HTML5/CSS3</td>
-                <td className="px-2 sm:px-4 py-3">Structuring and styling</td>
+                <td className="px-2 sm:px-4 py-3">🏗️ @react-toastify</td>
+                <td className="px-2 sm:px-4 py-3">Getting Notification Popup</td>
               </tr>
               <tr className="hover:bg-white hover:bg-opacity-10 transition-colors">
                 <td className="px-2 sm:px-4 py-3">✨ JavaScript (ES6+)</td>
