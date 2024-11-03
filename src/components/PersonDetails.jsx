@@ -5,6 +5,8 @@ import Horizontalcards from "../partials/Horizontalcards";
 import Dropdown from "../partials/Dropdown";
 import { asyncloadperson, removePerson } from "../store/actions/personAction";
 import P_DeatilsLoader from "../utils/P_DeatilsLoader";
+import NoProfile from "../accets/NoProfile.gif"
+
 
 const PersonDetails = () => {
     document.title = "AstroShow - Person Details";
@@ -40,7 +42,7 @@ const PersonDetails = () => {
                         <div className="lg:w-1/4 mb-10 lg:mb-0">
                             <img
                                 className="shadow-lg rounded-lg w-full h-80 lg:h-auto object-cover"
-                                src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
+                                src={ info.detail.profile_path ? `https://image.tmdb.org/t/p/original/${info.detail.profile_path}` : NoProfile}
                                 alt=""
                             />
                             <hr className="mt-5 border-none h-[1px] bg-zinc-500" />

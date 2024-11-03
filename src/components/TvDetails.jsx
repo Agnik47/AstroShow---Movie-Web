@@ -111,7 +111,7 @@ const TvDetails = () => {
 
       <Outlet />
     </div>
-  ) : <P_DeatilsLoade r />;
+  ) : <P_DeatilsLoader />;
 };
 
 export default TvDetails;
