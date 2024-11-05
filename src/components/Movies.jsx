@@ -6,6 +6,7 @@ import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "../Loader/Loader";
+import SideNav from "../partials/SideNav";
 
 const Movies = () => {
   document.title = "AstroShow - Movies";
@@ -60,57 +61,55 @@ const Movies = () => {
     refreshHandler();
   }, [categories]);
 
-  return categories && movie ? (
-    <div
-      className="Popular-Page w-full min-h-screen overflow-y-auto relativen"
-      ref={scrollRef}
-      onScroll={handleScroll}
-    >
-      {showScrollUp && (
-        <div
-          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
-          onClick={scrollToTop}
-        >
-          <p className="text-white text-sm mr-2">Scroll Up</p>
-          <i className="ri-arrow-up-line text-white text-2xl"></i>
-        </div>
-      )}
-
-      <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
-        <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
-          <i
-            onClick={() => navigate(-1)}
-            className="ri-arrow-left-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300 mr-2"
-          ></i>
-          Movies
-        </h1>
-
-        <div className="flex items-center w-80%">
-          <TopNav
-            SuggestionClass="left-[1%]"
-            fullScreenClass="hidden"
-            className="hidden md:block  w-[57vw] top-6 absolute "
-          />
-          <Dropdown
-            options={["popular", "top_rated", "upcoming", "now_playing"]}
-            selectedOption={categories}
-            onOptionChange={setCategories}
-          />
-        </div>
-      </div>
-
-      <InfiniteScroll
-        dataLength={movie.length}
-        next={getMovie}
-        hasMore={hasMore}
-        loader={<h4 className="text-2xl text-white mt-2 ">Loading...</h4>}
-        scrollableTarget="Popular-Page"
+  return (
+    <>
+      <SideNav />
+      <div
+        className="Popular-Page w-[80%] ml-[20%] min-h-screen overflow-y-auto relative"
+        ref={scrollRef}
+        onScroll={handleScroll}
       >
-        <Cards data={movie} title="movie" />
-      </InfiniteScroll>
-    </div>
-  ) : (
-    <Loader />
+        {showScrollUp && (
+          <div
+            className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
+            onClick={scrollToTop}
+          >
+            <p className="text-white text-sm mr-2">Scroll Up</p>
+            <i className="ri-arrow-up-line text-white text-2xl"></i>
+          </div>
+        )}
+
+        <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
+          <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
+            
+            Movies
+          </h1>
+
+          <div className="flex items-center w-80%">
+            <TopNav
+              SuggestionClass="left-[1%]"
+              fullScreenClass="hidden"
+              className="hidden md:block w-[57vw] top-6 absolute"
+            />
+            <Dropdown
+              options={["popular", "top_rated", "upcoming", "now_playing"]}
+              selectedOption={categories}
+              onOptionChange={setCategories}
+            />
+          </div>
+        </div>
+
+        <InfiniteScroll
+          dataLength={movie.length}
+          next={getMovie}
+          hasMore={hasMore}
+          loader={<h4 className="text-2xl text-white mt-2">Loading...</h4>}
+          scrollableTarget="Popular-Page"
+        >
+          <Cards data={movie} title="movie" />
+        </InfiniteScroll>
+      </div>
+    </>
   );
 };
 

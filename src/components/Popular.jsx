@@ -6,6 +6,7 @@ import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "../Loader/Loader";
+import SideNav from "../partials/SideNav";
 
 const Popular = () => {
   document.title = "AstroShow - Popular";
@@ -59,8 +60,10 @@ const Popular = () => {
 
   //    
   return categories && popular ? (
+    <>
+    <SideNav/>
     <div
-      className="Popular-Page w-full h-screen overflow-y-auto"
+      className="Popular-Page w-[80%] ml-[20%]  h-screen overflow-y-auto"
       ref={scrollRef}
       onScroll={handleScroll} // Attach the scroll event to the div
     >
@@ -77,10 +80,7 @@ const Popular = () => {
 
       <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
         <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
-          <i
-            onClick={() => navigate(-1)}
-            className="ri-arrow-left-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300 mr-2"
-          ></i>
+         
           Popular
         </h1>
 
@@ -107,6 +107,7 @@ const Popular = () => {
         <Cards data={popular} title={categories}/>
       </InfiniteScroll>
     </div>
+    </>
   ) : (
     <Loader />
   );

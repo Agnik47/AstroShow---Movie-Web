@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
+import SideNav from "../partials/SideNav";
 
 const Trending = () => {
   document.title = "AstroShow - Trending";
@@ -65,9 +66,11 @@ const Trending = () => {
   };
 
 
-  return (  
+  return (
+    <>  
+    <SideNav/>
     <div
-      className="Trending-Page w-full h-screen overflow-y-auto"
+      className="Trending-Pagew-[80%] ml-[20%]  h-screen overflow-y-auto"
       id="Trending-Page"
       ref={scrollRef}
       onScroll={handleScroll} // Attach the scroll event to the div
@@ -84,10 +87,7 @@ const Trending = () => {
 
       <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
         <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
-          <i
-            onClick={() => navigate(-1)}
-            className="ri-arrow-left-line text-white cursor-pointer hover:text-[#6556CD] transition-colors mr-2"
-          ></i>
+          
           Trending
         </h1>
 
@@ -116,7 +116,8 @@ const Trending = () => {
         <Cards data={trending} title={categories} />
       </InfiniteScroll>
     </div>
-  );
+    </>
+  )
 };
 
 export default Trending;

@@ -9,7 +9,7 @@ const SideNav = ({ isSidebarOpen }) => {
         md:translate-x-0 transition-transform duration-300  bg-[]`}
     >
      <h1 className="text-white text-2xl font-bold">
-        <i className=" text-[#6556CD] ri-tv-fill mr-2 text-3xl"></i>
+        <Link to={"/"}><i className=" text-[#6556CD] ri-tv-fill mr-2 text-3xl"></i></Link>
         <span className="text-2xl">AstroShow</span>
       </h1>
 

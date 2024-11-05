@@ -6,6 +6,7 @@ import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "../Loader/Loader";
+import SideNav from "../partials/SideNav";
 
 const People = () => {
   document.title = "AstroShow - People";
@@ -62,7 +63,10 @@ const People = () => {
   }, [categories]);
 
   return categories && people ? (
-    <div className="Popular-Page w-full h-screen">
+
+    <>
+    <SideNav/>
+    <div className="Popular-Page w-[80%] ml-[20%]  h-screen">
       {/* Scroll Up Button */}
       {showScrollUp && (
         <div
@@ -76,10 +80,7 @@ const People = () => {
 
       <div className="Upper-Side w-full flex items-center justify-between px-[2vw]">
         <h1 className="text-white text-2xl font-bold">
-          <i
-            onClick={() => navigate(-1)}
-            className="ri-arrow-left-line text-white text-2xl cursor-pointer hover:text-[#6556CD] transition-all duration-300"
-          ></i>{" "}
+         
           People 
         </h1>
 
@@ -98,6 +99,7 @@ const People = () => {
         <Cards data={people} title="person" ratingClass="hidden" />
       </InfiniteScroll>
     </div>
+    </>
   ) : (
     <Loader />
   );

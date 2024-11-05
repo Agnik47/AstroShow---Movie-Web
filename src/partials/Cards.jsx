@@ -7,7 +7,7 @@ const Cards = ({ data, title, ratingClass }) => {
   const [rating, setRating] = useState(true);
 
   return (
-    <div className="grid mt-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 bg-[#1F1E24] px-[2vw]">
+    <div className="grid mt-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-[#1F1E24] px-[2vw]">
       {data.map((card, index) => {
         // Determine the image path from the available options
 

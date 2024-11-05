@@ -56,12 +56,12 @@ const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
           type="text"
           value={queery}
           onChange={(e) => setQueery(e.target.value)}
-          placeholder={queery.length === 0 ? "" : ""}
-          className="border-none bg-transparent h-[5vh] outline-none text-white p-4 flex-grow mx-4 rounded-lg"
+          placeholder="Search Movies.."
+          className="border-none bg-zinc-800 h-[5vh] outline-none text-white p-4 flex-grow mx-4 rounded-lg"
         />
 
         {/* Static "Search" with Dynamic Words */}
-        {queery.length === 0 && (
+        {/* {queery.length === 0 && (
           <div className={`absolute left-[4%] text-white text-lg flex ${tClassName}`}>
             <span className="mr-2">Search</span>
             <Typewriter
@@ -82,7 +82,7 @@ const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
               }}
             />
           </div>
-        )}
+        )} */}
 
         {/* cursor pointer remove search inputs */}
         {queery.length > 0 && (

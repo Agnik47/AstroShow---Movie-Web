@@ -100,15 +100,16 @@ const About = () => {
             </tbody>
           </table>
         </div>
-      </div>
-
-      {/* Back Button */}
+         {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        className="absolute bottom-4  sm:bottom-6 px-6 py-2 sm:px-8 sm:py-3 bg-[#6556CD] text-white font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 hover:bg-[#5144b3] focus:outline-none z-20"
+        className="  px-6 py-2 sm:px-8 sm:py-3 bg-[#6556CD] text-white font-semibold rounded-full shadow-lg transition-transform transform  hover:bg-[#5144b3] focus:outline-none z-20"
       >
         Back to Homepage
       </button>
+      </div>
+
+     
     </div>
   );
 };
