@@ -86,7 +86,11 @@ const TvShows = () => {
         </h1>
 
         <div className="flex items-center w-80%">
-          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block  w-[55vw] top-6" />
+        <TopNav
+              SuggestionClass="left-[1%]"
+              fullScreenClass="hidden"
+              className="hidden md:block  w-4vw mr-[15vw] top-6 t"
+            />
           <Dropdown
             options={["popular", "top_rated", "on_the_air", "airing_today"]}
             selectedOption={categories}

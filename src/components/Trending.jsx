@@ -92,7 +92,7 @@ const Trending = () => {
         </h1>
 
         <div className="flex items-center space-x-4">
-          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block  w-[41vw] top-6 t" />
+          <TopNav SuggestionClass="left-[1%]" fullScreenClass="hidden" className="hidden md:block  w-4vw    mr-12 top-6 t" />
           <Dropdown
             options={["all", "movie", "tv"]}
             selectedOption={categories}

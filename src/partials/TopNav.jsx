@@ -51,7 +51,7 @@ const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
   return (
     <div className={`TopNav bar w-[80%] bg-[#1F1E2] border-[#363636] h-[10vh] ml-[10vw] flex justify-center items-center px-10 relative z-10 b ${className}`}>
       <div className="InnerInput flex items-center w-[60%] gap-x-4 relative">
-        <i className="ri-search-line text-white text-2xl absolute -left-[3%]"></i>  
+        {/* <i className="ri-search-line text-white text-2xl absolute -left-[3%]"></i>   */}
           <input
           type="text"
           value={queery}
@@ -103,7 +103,7 @@ const TopNav = ({className,tClassName,fullScreenClass,SuggestionClass}) => {
 
       {/* Suggestion Box  */}
       {queery.length > 0 && (
-        <div className={`absolute top-[90%] left-[20%] w-[60%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh] ${SuggestionClass}`}>
+        <div className={`absolute top-[90%] left-[20%] w-[40%] bg-zinc-800 overflow-auto rounded-lg max-h-[50vh] ${SuggestionClass}`}>
           {searchResults.map((movie, index) => (
             <Link
               to={`/${movie.media_type || movie.title}/details/${movie.id}`}

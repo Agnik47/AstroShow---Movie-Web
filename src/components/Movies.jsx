@@ -81,7 +81,6 @@ const Movies = () => {
 
         <div className="Upper Side flex flex-col md:flex-row justify-between items-center px-5 py-3 md:px-10">
           <h1 className="text-2xl font-bold flex items-center mb-3 md:mb-0 text-white">
-            
             Movies
           </h1>
 
@@ -89,8 +88,9 @@ const Movies = () => {
             <TopNav
               SuggestionClass="left-[1%]"
               fullScreenClass="hidden"
-              className="hidden md:block w-[57vw] top-6 absolute"
+              className="hidden md:block  w-4vw mr-[15vw] top-6 t"
             />
+
             <Dropdown
               options={["popular", "top_rated", "upcoming", "now_playing"]}
               selectedOption={categories}
