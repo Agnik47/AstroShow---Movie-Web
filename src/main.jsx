@@ -5,12 +5,16 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store.jsx";
+import Loader from "./Loader/Loader.jsx";
+import SideLoader from "./Loader/SideLoader.jsx";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      {/* <Loader/> */}
       {/* <P_DeatilsLoader />  */}
+      {/* <SideLoader/> */}
+      <App />
     </BrowserRouter>
   </Provider>
 );

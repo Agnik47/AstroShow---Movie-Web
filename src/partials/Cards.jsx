@@ -18,7 +18,7 @@ const Cards = ({ data, title, ratingClass }) => {
           <Link
             to={`/${card.media_type || title}/details/${card.id}`}
             key={index}
-            className="group relative rounded-lg overflow-hidden  shadow-lg transform transition-all duration-300 hover:scale-105"
+            className=" group relative rounded-lg overflow-hidden  shadow-lg transform transition-all duration-300 hover:scale-105"
           >
             {imageUrl ? (
               <img

@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loader from "../Loader/Loader";
 import SideNav from "../partials/SideNav";
+import SideLoader from "../Loader/SideLoader";
 
 const People = () => {
   document.title = "AstroShow - People";
@@ -66,7 +66,7 @@ const People = () => {
 
     <>
     <SideNav/>
-    <div className="Popular-Page w-[80%] ml-[20%]  h-screen">
+    <div className="Peopele-Page w-[80%] ml-[20%]  h-screen">
       {/* Scroll Up Button */}
       {showScrollUp && (
         <div
@@ -101,7 +101,7 @@ const People = () => {
     </div>
     </>
   ) : (
-    <Loader />
+    <SideLoader loaderTitle="People" />
   );
 };
 

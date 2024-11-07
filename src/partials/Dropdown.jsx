@@ -42,10 +42,10 @@ const Dropdown = ({ options, selectedOption, onOptionChange, dropDown }) => {
         </span>
       </button>
       {isOpen && (
-        <div className="absolute z-10 mt-1 w-[150px] bg-[#2A292F] rounded-lg shadow-lg">
-          {options.map((option) => (
+        <div className="absolute z-10 mt-1  overflow-hidden w-[150px] bg-[#2A292F] rounded-lg shadow-lg">
+          {options.map((option,i) => (
             <div
-              key={option}
+              key={i}
               className="cursor-pointer text-white hover:bg-[#6556CD] p-2 h-[40px] transition-colors duration-200"
               onClick={() => handleOptionClick(option)}
             >

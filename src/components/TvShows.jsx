@@ -7,6 +7,7 @@ import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "../Loader/Loader";
 import SideNav from "../partials/SideNav";
+import SideLoader from "../Loader/SideLoader";
 
 const TvShows = () => {
   document.title = "AstroShow - TV Shows";
@@ -71,7 +72,7 @@ const TvShows = () => {
     >
       {showScrollUp && (
         <div
-          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
+          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer  transform -translate-x-1/2 top-[85%] left-[60%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
           onClick={scrollToTop}
         >
           <p className="text-white text-sm mr-2">Scroll Up</p>
@@ -111,7 +112,7 @@ const TvShows = () => {
     </div>
     </>
   ) : (
-    <Loader />
+    <SideLoader loaderTitle="Tv Show" />
   );
 };
 

@@ -6,6 +6,7 @@ import axios from "../utils/axios";
 import Cards from "../partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
 import SideNav from "../partials/SideNav";
+import SideLoader from "../Loader/SideLoader";
 
 const Trending = () => {
   document.title = "AstroShow - Trending";
@@ -66,18 +67,18 @@ const Trending = () => {
   };
 
 
-  return (
+  return  categories ? (
     <>  
     <SideNav/>
     <div
-      className="Trending-Pagew-[80%] ml-[20%]  h-screen overflow-y-auto"
+      className="Trending-Page w-[80%] ml-[20%]  h-screen overflow-y-auto"
       id="Trending-Page"
       ref={scrollRef}
       onScroll={handleScroll} // Attach the scroll event to the div
     >
       {showScrollUp && (
         <div
-          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer left-1/2 transform -translate-x-1/2 top-[85%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
+          className="fixed z-50 bg-gradient-to-r from-purple-700 via-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-400 shadow-lg rounded-full cursor-pointer  transform -translate-x-1/2 top-[85%] left-[60%] py-2 px-4 flex items-center gap-2 transition-transform duration-300 hover:scale-105 opacity-90 hover:opacity-100 animate-fadeIn"
           onClick={scrollToTop}
         >
           <p className="text-white text-sm mr-2">Scroll Up</p>
@@ -102,7 +103,7 @@ const Trending = () => {
             options={["day", "week"]}
             selectedOption={duration}
             onOptionChange={setDuration}
-          />
+          /> x\
         </div>
       </div>
 
@@ -117,7 +118,7 @@ const Trending = () => {
       </InfiniteScroll>
     </div>
     </>
-  )
+  ) : <SideLoader loaderTitle="Trending"/>
 };
 
 export default Trending;

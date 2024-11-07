@@ -12,15 +12,15 @@ const Loader = ({name}) => {
       
       <div className="flex-1 flex flex-col ">
         {/* Skeleton for TopNav */}
-        <div className="flex items-center justify-between p-4 bg-[#2A292F]">
+        <div className="flex items-center justify-between h-[10vh] p-4 bg-[#2A292F]">
           {/* Search Bar */}
-          <div className="w-2/3 h-10 bg-gray-700 rounded-md animate-pulse ml-[15vw]"></div>
+          <div className="w-[32vw] h-10 bg-gray-700 rounded-md animate-pulse ml-[24vw]"></div>
          
         </div>
 
         {/* Skeleton for Header Section */}
-        <div className="p-6">
-          <div className="w-full h-[43vh] bg-gray-700 rounded-md animate-pulse"></div>
+        <div className="p-5">
+          <div className="w-full h-[56vh] bg-gray-700 rounded-md animate-pulse"></div>
 
         </div>
 
