@@ -33,10 +33,10 @@ const Dropdown = ({ options, selectedOption, onOptionChange, dropDown }) => {
   return (
     <div className={`relative inline-block ${dropDown}`} ref={dropdownRef}>
       <button
-        className="bg-[#6556CD] text-white rounded w-[150px] h-[40px] px-5 py-2 flex justify-between items-center transition-colors duration-200 hover:bg-[#5043A9]"
+        className="bg-[#6556CD] text-white text-sm font-semibold rounded w-[150px] h-[40px] px-5 py-2 flex justify-between items-center transition-colors duration-200 hover:bg-[#5043A9]"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {selectedOption}
+        {selectedOption.toUpperCase()}
         <span className={`ml-2 transition-transform ${isOpen ? 'rotate-180' : ''}`}>
           ▼
         </span>
@@ -46,10 +46,10 @@ const Dropdown = ({ options, selectedOption, onOptionChange, dropDown }) => {
           {options.map((option,i) => (
             <div
               key={i}
-              className="cursor-pointer text-white hover:bg-[#6556CD] p-2 h-[40px] transition-colors duration-200"
+              className="cursor-pointer text-white text-sm hover:bg-[#6556CD] p-2 h-[40px] transition-colors duration-200"
               onClick={() => handleOptionClick(option)}
             >
-              {option}
+              {option.toUpperCase()}
             </div>
           ))}
         </div>
