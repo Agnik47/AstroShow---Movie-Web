@@ -91,4 +91,4 @@ AstroShow/
 
 --- 
 
-> Made by **Agnik aka Astro** 
+> Made by **Agnik** 
